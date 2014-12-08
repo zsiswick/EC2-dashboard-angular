@@ -1,9 +1,6 @@
-var MyNamespace = MyNamespace || {};
+var EC2Dash = EC2Dash || {};
 
- MyNamespace.helpers = {
-    isNotString: function(str) {
-      return (typeof str !== "string");
-    },
+ EC2Dash.helpers = {
     tallyServerState: function(servers) {
 
     serverState = { "running":0, "stopped":0, "total": 0 }
@@ -12,11 +9,14 @@ var MyNamespace = MyNamespace || {};
 
       if (value.state === "running") {
         serverState.running ++;
+
       } else if (value.state === "stopped") {
         serverState.stopped ++;
       }
+
       serverState.total ++;
     });
+
     return serverState;
    }
  };
@@ -24,7 +24,7 @@ var MyNamespace = MyNamespace || {};
 var app = angular.module('dashboardApp', [])
   .controller('DashboardController', ['$scope', '$http', function($scope, $http) {
     $scope.servers = {};
-    $scope.helpers = MyNamespace.helpers;
+    $scope.helpers = EC2Dash.helpers;
 
     $scope.sortorder = 'name';
 
@@ -43,11 +43,14 @@ var app = angular.module('dashboardApp', [])
     }
 
     $scope.checkAll = function () {
+
       if ($scope.selectedAll) {
           $scope.selectedAll = true;
+
       } else {
           $scope.selectedAll = false;
       }
+
       angular.forEach($scope.servers, function (item) {
           item.Selected = $scope.selectedAll;
       });
@@ -81,6 +84,7 @@ var app = angular.module('dashboardApp', [])
             count ++
           }
       });
+
       return count;
     }
 

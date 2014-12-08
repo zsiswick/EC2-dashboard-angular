@@ -27,7 +27,7 @@ body {
   margin-top: 1rem;
 }
 .dash {
-  padding: 4rem inherit;
+  padding: 2rem inherit;
 }
 .server-rows tr.selected {
   background: #f5f5f5;
@@ -68,7 +68,11 @@ body {
 .server-rows .indication span.text {
   margin-left: .875rem;
 }
+.thumbnail .caption {
+  background: #777;
+  color: #fff;
+}
 .thumbnail h2,
 .thumbnail h3 {
-  margin-top: .25rem;
+  margin: .25rem 0;
 }
